@@ -1,40 +1,115 @@
-import java.util.Scanner;
 
-public class Task2 {
+class Main {
     public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    int[] array= new int[10];
-    array[0]=5; 
-    array[1]=10;
-    array[2]=15; 
-    array[3]=20;
-    array[4]=25;
-    System.out.println("Initial array elements:");
-    for(int i=0;i<array.length;i++){
-        System.out.print(array[i]+" ");
-    } 
-    //Insertion of elements in specific positions
-    System.out.println("Enter the position where you want to insert element");
-    int p=scanner.nextInt();
-    System.out.println("Enter the element to be inserted");
-    int e=scanner.nextInt();
-    for(int i=0;i<array.length;i++){
-        if(i==p)
-            array[i]=e;
-    }
-    System.out.println("Array after insertion:");
-    for(int i=0;i<array.length;i++){
-        System.out.print(array[i]+" ");
-    }
 
-    //Deletion of element from specific position and readjusting the array to it's left side
-    System.out.println("Enter the position from where you want to delete element");
-    int d=scanner.nextInt();
-    for(int i=d;i<array.length-1;i++){
-        array[i]=array[i+1];        
-    }
-    System.out.println("Array after deletion:");
-    for(int i=0;i<array.length-1;i++){
-        System.out.print(array[i]+" ");
-    }
-}}
+        int[] n = new int[10];
+        int cz = 0;
+
+        for (int i = 0; i < 5; i++) {
+            n[i] = i + 1;
+        }
+
+        cz = 5;
+        
+        System.out.println(" total capacity is "+ n.length);
+        
+        System.out.println(" After initializing 5 values manually ");
+        
+        System.out.println(" current size is "+ cz);
+        
+        for (int i = 0; i < n.length; i++) {
+            
+            System.out.println(i + " index "+n[i]);  
+        }
+        // operation 1 (append)
+        if (cz < n.length) {
+            n[cz] = 100;   
+            cz++;        
+            
+        }
+        System.out.println(" _________After append: _______");
+
+       
+       System.out.println(" current size is "+ cz);
+        
+        for (int i = 0; i < n.length; i++) {
+            
+            System.out.println(i + " index "+n[i]);  
+        }
+        //operation 2 (pop)
+        if (cz > 0) {
+            n[cz-1]=0;
+            cz--;          
+                
+            
+        }
+        System.out.println(" _________After pop: _______");
+
+       
+       System.out.println(" current size is "+ cz);
+        
+        for (int i = 0; i < n.length; i++) {
+            
+            System.out.println(i + " index "+n[i]);  
+        }
+        
+        // insertion oparation
+        
+        //index where to insert our new value
+        
+        int postionOfIndex=2;
+        int insertingVal =200;
+        
+        if((cz<n.length) && (postionOfIndex > 0) && (postionOfIndex < cz)){
+        
+        
+        
+        for(int i=cz; i>postionOfIndex;i--){
+            n[i]=n[i-1];
+        }
+        
+        n[postionOfIndex]=insertingVal;
+        cz++;
+        }
+        else{
+            System.out.println("array is full cann't perform insertion now or invalid index to insert");
+        }
+        
+        System.out.println(" _________After Insertion: _______");
+
+       
+       System.out.println(" current size is "+ cz);
+        
+        for (int i = 0; i < n.length; i++) {
+            
+            System.out.println(i + " index "+n[i]);  
+        }
+        
+        // deletion oparation
+        
+        // which index val to be deleted
+        
+        int postionOfIndexToDel=2;
+        
+        if((cz>0) && (postionOfIndex > 0) && (postionOfIndex < cz)){
+            
+            for(int i=postionOfIndexToDel;i<cz-1;i++ ){
+                n[i]=n[i+1];
+            }
+            n[cz-1]=0 ;// option while class
+            cz--;
+            
+        }
+        else{
+            System.out.println("array is empty cann't perform deletion now or invalid index to insert");
+        }
+        
+        System.out.println(" _________After Deletion: _______");
+
+       
+       System.out.println(" current size is "+ cz);
+        
+        for (int i = 0; i < n.length; i++) {
+            
+            System.out.println(i + " index "+n[i]);  
+        }
