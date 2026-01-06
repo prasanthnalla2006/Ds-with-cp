@@ -1,0 +1,15 @@
+class Demo {
+    public String Add(int a,int b) {
+        if (a%2==0){
+            return "even";
+        }
+        return "odd";
+    }
+}
+class Main {
+    public static void main (String[] args){
+        Demo obj = new Demo();//crating a object from demo class 
+        String r= obj.Add(21,3);
+        System.out.println(r);
+    }
+}
